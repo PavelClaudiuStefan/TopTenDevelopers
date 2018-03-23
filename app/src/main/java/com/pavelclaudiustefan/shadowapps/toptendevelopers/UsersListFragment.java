@@ -51,7 +51,6 @@ public class UsersListFragment extends Fragment implements LoaderManager.LoaderC
         listView.setEmptyView(emptyStateTextView);
 
         usersListAdapter = new UsersListAdapter(getActivity(), users);
-        Log.i("logit", "users: " + users.size());
         listView.setAdapter(usersListAdapter);
 
         // TODO - before checking for internet - check the cache
