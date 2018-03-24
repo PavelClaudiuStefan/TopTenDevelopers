@@ -34,9 +34,6 @@ public class UsersListAdapter extends ArrayAdapter<User> {
             listItemView = LayoutInflater.from(getContext()).inflate(R.layout.users_list_item, parent, false);
         }
 
-        int size = getCount();
-        Log.i("logit", "users: " + size);
-
         User currentUser = getItem(position);
 
         TextView titleView = listItemView.findViewById(R.id.name);

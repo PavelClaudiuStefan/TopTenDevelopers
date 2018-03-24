@@ -54,8 +54,6 @@ public class UserDetailsFragment extends Fragment {
         TextView bronzeBadgesCountTextview = rootView.findViewById(R.id.bronzeBadges);
         bronzeBadgesCountTextview.setText(bronzeBadgesCount);
 
-        Log.i("logit", profileImageUrl);
-
         ImageView profileImageView = rootView.findViewById(R.id.profileImage);
         Picasso picasso = Picasso.get();
         picasso.setIndicatorsEnabled(true);

@@ -4,96 +4,102 @@
     android:layout_height="match_parent"
     tools:context="com.pavelclaudiustefan.shadowapps.toptendevelopers.UserDetailsFragment">
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/profileImage"
-            android:layout_width="256dp"
-            android:layout_height="256dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_centerHorizontal="true"
-            android:maxHeight="200dp"
-            android:maxWidth="200dp"
-            android:adjustViewBounds="true"
-            android:background="@drawable/temp_thumbnail"
-            android:contentDescription="@string/thumbnail" />
-
-        <TextView
-            android:id="@+id/name"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/profileImage"
-            android:layout_marginTop="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginEnd="16dp"
-            android:textSize="24sp"
-            android:textColor="@android:color/black"
-            tools:text="Pavel Claudiu Stefan" />
+            android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/location"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/name"
-            android:layout_marginTop="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginEnd="16dp"
-            android:textSize="16sp"
-            android:textColor="@android:color/black"
-            tools:text="Bucharest, Romania" />
+            <ImageView
+                android:id="@+id/profileImage"
+                android:layout_width="256dp"
+                android:layout_height="256dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_centerHorizontal="true"
+                android:maxHeight="200dp"
+                android:maxWidth="200dp"
+                android:adjustViewBounds="true"
+                android:background="@drawable/temp_thumbnail"
+                android:contentDescription="@string/thumbnail" />
 
-        <TextView
-            android:id="@+id/goldBadges"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/location"
-            android:layout_marginTop="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginEnd="16dp"
-            android:textSize="16sp"
-            android:textColor="@android:color/black"
-            tools:text="Gold badges: 10" />
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/profileImage"
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginEnd="16dp"
+                android:textSize="24sp"
+                android:textColor="@android:color/black"
+                tools:text="Pavel Claudiu Stefan" />
 
-        <TextView
-            android:id="@+id/silverBadges"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/goldBadges"
-            android:layout_marginTop="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginEnd="16dp"
-            android:textSize="16sp"
-            android:textColor="@android:color/black"
-            tools:text="Silver badges: 100" />
+            <TextView
+                android:id="@+id/location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/name"
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginEnd="16dp"
+                android:textSize="16sp"
+                android:textColor="@android:color/black"
+                tools:text="Bucharest, Romania" />
 
-        <TextView
-            android:id="@+id/bronzeBadges"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/silverBadges"
-            android:layout_marginTop="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginEnd="16dp"
-            android:textSize="16sp"
-            android:textColor="@android:color/black"
-            tools:text="Bronze badges: 1000" />
+            <TextView
+                android:id="@+id/goldBadges"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/location"
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginEnd="16dp"
+                android:textSize="16sp"
+                android:textColor="@android:color/black"
+                tools:text="Gold badges: 10" />
 
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/silverBadges"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/goldBadges"
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginEnd="16dp"
+                android:textSize="16sp"
+                android:textColor="@android:color/black"
+                tools:text="Silver badges: 100" />
+
+            <TextView
+                android:id="@+id/bronzeBadges"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/silverBadges"
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginEnd="16dp"
+                android:textSize="16sp"
+                android:textColor="@android:color/black"
+                tools:text="Bronze badges: 1000" />
+
+        </RelativeLayout>
+
+    </ScrollView>
 
 </FrameLayout>

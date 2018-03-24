@@ -10,7 +10,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,25 +52,9 @@ public class UsersListFragment extends Fragment implements LoaderManager.LoaderC
         usersListAdapter = new UsersListAdapter(getActivity(), users);
         listView.setAdapter(usersListAdapter);
 
-        // TODO - before checking for internet - check the cache
+        // Fetch data
+        getLoaderManager().initLoader(USERS_LOADER_ID, null, this);
 
-        ConnectivityManager connMgr = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo networkInfo = null;
-        if (connMgr != null) {
-            networkInfo = connMgr.getActiveNetworkInfo();
-        }
-
-        // If there is a network connection, fetch data
-        if (networkInfo != null && networkInfo.isConnected()) {
-            getLoaderManager().initLoader(USERS_LOADER_ID, null, this);
-
-        } else {
-            // First, hide loading indicator so error message will be visible
-            View loadingIndicator = rootView.findViewById(R.id.loading_indicator);
-            loadingIndicator.setVisibility(View.GONE);
-
-            emptyStateTextView.setText(R.string.no_internet_connection);
-        }
 
         // Setup the item click listener
         // TODO - send user data more efficient
@@ -112,8 +95,6 @@ public class UsersListFragment extends Fragment implements LoaderManager.LoaderC
         uriBuilder.appendQueryParameter("sort", "reputation");
         uriBuilder.appendQueryParameter("site", "stackoverflow");
 
-        Log.i("logit", uriBuilder.toString());
-
         return new UsersListLoader(getActivity(), uriBuilder.toString());
     }
 
@@ -130,6 +111,9 @@ public class UsersListFragment extends Fragment implements LoaderManager.LoaderC
             usersListAdapter.addAll(users);
         }
 
+        if (users == null) {
+            displayError();
+        }
     }
 
     @Override
@@ -137,7 +121,20 @@ public class UsersListFragment extends Fragment implements LoaderManager.LoaderC
         usersListAdapter.clear();
     }
 
-    public void refreshList() {
-        // TODO - get fresh data
+    private void refreshList() {
+        // TODO
+    }
+
+    private void displayError() {
+        ConnectivityManager connMgr = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = null;
+        if (connMgr != null) {
+            networkInfo = connMgr.getActiveNetworkInfo();
+        }
+        if (networkInfo == null || !networkInfo.isConnected()) {
+            emptyStateTextView.setText(R.string.no_internet_connection);
+        } else {
+            emptyStateTextView.setText(R.string.unknown_error);
+        }
     }
 }
