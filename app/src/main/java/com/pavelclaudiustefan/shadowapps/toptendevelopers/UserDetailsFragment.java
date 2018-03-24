@@ -56,7 +56,7 @@ public class UserDetailsFragment extends Fragment {
 
         ImageView profileImageView = rootView.findViewById(R.id.profileImage);
         Picasso picasso = Picasso.get();
-        picasso.setIndicatorsEnabled(true);
+        //picasso.setIndicatorsEnabled(true);
         picasso.load(profileImageUrl)
                 .into(profileImageView);
 

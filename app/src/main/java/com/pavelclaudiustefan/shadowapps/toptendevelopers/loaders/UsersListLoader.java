@@ -6,7 +6,6 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.preference.PreferenceManager;
 import android.support.v4.content.AsyncTaskLoader;
-import android.util.Log;
 
 import com.pavelclaudiustefan.shadowapps.toptendevelopers.App;
 import com.pavelclaudiustefan.shadowapps.toptendevelopers.data.UsersHttpRequest;
@@ -45,14 +44,12 @@ public class UsersListLoader extends AsyncTaskLoader<List<User>>{
 
         if (users != null && ramCacheExpireTime > currentTime) {
             // Return users stored in ram
-            Log.i("logit", "ram");
             return users;
         }
 
         long diskCacheExpireTime = prefs.getLong("disk_cache_expire_time", 0);
         if (diskCacheExpireTime > currentTime) {
             // Return users stored on disk
-            Log.i("logit", "disk1");
             return getUsersFromDisk();
         } else {
             users = getUsersFromHttp();
@@ -60,11 +57,9 @@ public class UsersListLoader extends AsyncTaskLoader<List<User>>{
                 saveData(app, users, prefs);
 
                 //Return users from http
-                Log.i("logit", "http");
                 return users;
             } else {
-                // Error getting users from http, return users stored on disk (list can be null)
-                Log.i("logit", "disk2");
+                // Error getting users from http, return what is stored on disk as a last measure
                 return getUsersFromDisk();
             }
         }

@@ -44,7 +44,7 @@ public class UsersListAdapter extends ArrayAdapter<User> {
         ImageView imageView = listItemView.findViewById(R.id.thumbnail);
 
         Picasso picasso = Picasso.get();
-        picasso.setIndicatorsEnabled(true);
+        //picasso.setIndicatorsEnabled(true);
         picasso.load(currentUser.getProfileImageUrl())
                 .into(imageView);
 
